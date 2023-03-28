@@ -21,6 +21,8 @@ npm install
 
 # Run
 npm start
+
+# Visit http://localhost:5000
 ```
 
 ## Copy Short URL
