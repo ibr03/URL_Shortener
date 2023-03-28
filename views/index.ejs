@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+    <title>URL Shortener App</title>
+</head>
+  <body>
+      <h1>URL Shortener App</h1>
+      <main>
+        <section>
+          <form action="/api/url" method="POST" id="shortener">
+            <fieldset>
+              <legend>URL Shortener</legend>
+                <label for="url_input">URL:</label>
+                <input id="url_input" type="text" name="url" placeholder="Type URL here" size="60"/>
+                <button type="submit">Shorten URL</button><br>
+            </fieldset>
+          </form>
+          <% if (url.shortUrl) { %>
+            <h2>Short URL:</h2>
+            <input id="shortUrl" type="text" name="shortUrl" value="<%= url.shortUrl %>" size="45"/>
+            <!-- The button used to copy url-->
+            <button onclick="myFunction()">Copy URL</button>
+          <% } %>
+        </section>
+      </main>
+
+      <footer>
+        <p><a href="https://github.com/ibr03">By Ibrahim Abdullah</a></p>
+
+        <script>
+            // W3 School reference code
+            function myFunction() {
+              // Get the text field
+              var copyText = document.getElementById("shortUrl");
+
+              // Select the text field
+              copyText.select();
+              copyText.setSelectionRange(0, 99999); // For mobile devices
+
+              // Copy the text inside the text field
+              navigator.clipboard.writeText(copyText.value);
+
+              // Alert the copied text
+              alert("Copied the text: " + copyText.value);
+            }
+        </script>
+
+      </footer>
+  </body>
+</html>
